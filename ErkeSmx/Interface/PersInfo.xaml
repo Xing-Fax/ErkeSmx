@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="ErkeSmx.PersInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ErkeSmx" xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d" Height="563" Width="658" FontFamily="Roboto">
+    <UserControl.Resources>
+        <Style x:Key="AnimateListStyle" TargetType="{x:Type ListBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate >
+                        <Border x:Name="Bd">
+                            <ScrollViewer Height="524" Width="876">
+                                <ItemsPresenter>
+                                    <b:Interaction.Behaviors>
+                                        <b:FluidMoveBehavior Duration="0:0:0.5">
+                                            <b:FluidMoveBehavior.EaseY>
+                                                <QuinticEase EasingMode="EaseOut"/>
+                                            </b:FluidMoveBehavior.EaseY>
+                                            <b:FluidMoveBehavior.EaseX>
+                                                <QuinticEase EasingMode="EaseOut"/>
+                                            </b:FluidMoveBehavior.EaseX>
+                                        </b:FluidMoveBehavior>
+                                    </b:Interaction.Behaviors>
+                                </ItemsPresenter>
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="#99F7F7F7" Clip="M1.25,11.25 C1.25,5.7271525 5.7271525,1.25 11.25,1.25 L646.75,1.25 C652.27285,1.25 656.75,5.7271525 656.75,11.25 L656.75,578.75 C656.75,584.27285 652.27285,588.75 646.75,588.75 L11.25,588.75 C5.7271525,588.75 1.25,584.27285 1.25,578.75 z">
+        <TextBlock TextWrapping="Wrap" Margin="10,20,10,509" FontSize="20" FontWeight="Bold" TextAlignment="Center" Foreground="{Binding Background, ElementName=button}"><Run Language="zh-cn" Text="个人资料" FontFamily="Roboto"/></TextBlock>
+        <ListBox Style="{DynamicResource AnimateListStyle}" x:Name="InfoList" ScrollViewer.CanContentScroll="False" Margin="0,50,0,0" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
+        <Button x:Name="button" Content="Button" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="0" Height="0" Visibility="Hidden" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+    </Grid>
+</UserControl>

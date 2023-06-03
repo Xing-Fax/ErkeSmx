@@ -1,0 +1,54 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:local="clr-namespace:ErkeSmx"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="ErkeSmx.Group"
+             mc:Ignorable="d" Height="564" Width="658" FontFamily="Roboto">
+    <UserControl.Resources>
+        <Style x:Key="AnimateListStyle" TargetType="{x:Type ListBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate >
+                        <Border x:Name="Bd">
+                            <ScrollViewer Height="524" Width="876">
+                                <ItemsPresenter>
+                                    <b:Interaction.Behaviors>
+                                        <b:FluidMoveBehavior Duration="0:0:0.5">
+                                            <b:FluidMoveBehavior.EaseY>
+                                                <QuinticEase EasingMode="EaseOut"/>
+                                            </b:FluidMoveBehavior.EaseY>
+                                            <b:FluidMoveBehavior.EaseX>
+                                                <QuinticEase EasingMode="EaseOut"/>
+                                            </b:FluidMoveBehavior.EaseX>
+                                        </b:FluidMoveBehavior>
+                                    </b:Interaction.Behaviors>
+                                </ItemsPresenter>
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid Clip="M1.25,11.25 C1.25,5.7271525 5.7271525,1.25 11.25,1.25 L646.75,1.25 C652.27285,1.25 656.75,5.7271525 656.75,11.25 L656.75,542.75 C656.75,548.27285 652.27285,552.75 646.75,552.75 L11.25,552.75 C5.7271525,552.75 1.25,548.27285 1.25,542.75 z" Background="#99F7F7F7">
+        <TextBlock TextWrapping="Wrap" Margin="10,20,10,509" FontSize="20" FontWeight="Bold" TextAlignment="Center" Foreground="{Binding Background, ElementName=button}"><Run x:Name="ClassName" Language="zh-cn" Text="22级信息安全技术应用一班团支部" FontFamily="Roboto"/></TextBlock>
+        <materialDesign:PackIcon Kind="FormatListNumbered" Margin="102,120,0,0" Width="30" Height="30" Foreground="{Binding Background, ElementName=button}" />
+        <TextBlock x:Name="textBlock" TextWrapping="Wrap" Margin="137,125,392,409" FontSize="16" FontWeight="Bold" Foreground="{Binding Background, ElementName=button}"><Run x:Name="Count" Language="zh-cn" Text="团干人数：0 人" FontFamily="Roboto"/></TextBlock>
+        <materialDesign:PackIcon x:Name="packIcon" Kind="FormatListNumberedRtl" Margin="375,120,0,0" Width="30" Height="30" Foreground="{Binding Background, ElementName=button}" />
+        <TextBlock TextWrapping="Wrap" Margin="410,125,119,409" FontSize="16" FontWeight="Bold" Foreground="{Binding Background, ElementName=button}"><Run x:Name="Number" Language="zh-cn" Text="团员人数：44 人" FontFamily="Roboto"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="47,175,543,364" FontWeight="Bold"><Run Language="zh-cn" Text="团员列表："/></TextBlock>
+        <ScrollViewer Margin="47,195,46,0" Height="340" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="GroupList"/>
+        </ScrollViewer>
+        <TextBlock TextWrapping="Wrap" Margin="97,62,483,473" FontWeight="Bold"><Run Language="zh-cn" Text="团支部书记："/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="97,86,483,449" FontWeight="Bold"><Run Language="zh-cn" Text="组织所在地："/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="370,62,184,473" FontWeight="Bold"><Run Language="zh-cn" Text="团组织联系方式："/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="180,62,341,473"><Run x:Name="Name" Language="zh-cn" Text=""/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="180,86,341,449"><Run x:Name="Address" Language="zh-cn" Text=""/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="479,62,34,473"><Run x:Name="Phone" Language="zh-cn" Text=""/></TextBlock>
+        <Button x:Name="button" Content="Button" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Visibility="Hidden"/>
+    </Grid>
+</UserControl>

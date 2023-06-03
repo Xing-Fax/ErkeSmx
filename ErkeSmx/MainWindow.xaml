@@ -1,0 +1,602 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ErkeSmx"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+    xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+    xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf" xmlns:Interface="clr-namespace:ErkeSmx.Interface" x:Name="Main" x:Class="ErkeSmx.MainWindow"
+        mc:Ignorable="d"
+        Title="第二课堂" Height="600" Width="950"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{x:Null}"
+        FontFamily="Roboto" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
+    Activated="Main_Activated" ContentRendered="Main_ContentRendered" SnapsToDevicePixels="True"
+    WindowStyle="None" AllowsTransparency="True" Icon="/Image/ico/Logo_64X64.ico" >
+    <Window.Resources>
+        <Storyboard x:Key="Start">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Grid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.667">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Grid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.705">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Grid" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Close">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Style x:Key="AnimateListStyle" TargetType="{x:Type ListBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate >
+                        <Border x:Name="Bd">
+                            <ScrollViewer>
+                                <ItemsPresenter>
+                                    <b:Interaction.Behaviors>
+                                        <b:FluidMoveBehavior Duration="0:0:0.5">
+                                            <b:FluidMoveBehavior.EaseY>
+                                                <QuinticEase EasingMode="EaseOut"/>
+                                            </b:FluidMoveBehavior.EaseY>
+                                            <b:FluidMoveBehavior.EaseX>
+                                                <QuinticEase EasingMode="EaseOut"/>
+                                            </b:FluidMoveBehavior.EaseX>
+                                        </b:FluidMoveBehavior>
+                                    </b:Interaction.Behaviors>
+                                </ItemsPresenter>
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Storyboard x:Key="Page1_S">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Front" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Front" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Page1_C">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Front" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Front" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Page2_S">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Erke" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Erke" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Page2_C">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Erke" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Erke" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Page3_S">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MeInfo" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MeInfo" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Page3_C">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MeInfo" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MeInfo" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Page4_S">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Individual" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Individual" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Page4_C">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Individual" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Individual" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Page5_S">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SetTing" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SetTing" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Page5_C">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SetTing" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SetTing" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Style x:Key="GroupBoxStyle1" TargetType="{x:Type GroupBox}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="{Binding (TextElement.Foreground), RelativeSource={RelativeSource AncestorType={x:Type FrameworkElement}}}"/>
+            <Setter Property="Padding" Value="9"/>
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type GroupBox}">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{Binding Background, ElementName=PART_ColorZone}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10,10,10,10"/>
+                            <DockPanel Background="{TemplateBinding Background}">
+                                <wpf:ColorZone x:Name="PART_ColorZone" Background="{Binding (wpf:ColorZoneAssist.Background), RelativeSource={RelativeSource TemplatedParent}}" DockPanel.Dock="Top" Effect="{Binding (wpf:ElevationAssist.Elevation), Converter={x:Static converters:ShadowConverter.Instance}, RelativeSource={RelativeSource TemplatedParent}}" Foreground="{Binding (wpf:ColorZoneAssist.Foreground), RelativeSource={RelativeSource TemplatedParent}}" Mode="{Binding (wpf:ColorZoneAssist.Mode), RelativeSource={RelativeSource TemplatedParent}}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" UseLayoutRounding="True" Height="20">
+                                    <ContentPresenter ContentSource="Header" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentTemplate="{TemplateBinding HeaderTemplate}" ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </wpf:ColorZone>
+                                <ContentPresenter ContentStringFormat="{TemplateBinding ContentStringFormat}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </DockPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="wpf:ColorZoneAssist.Mode" Value="PrimaryMid"/>
+            <Setter Property="wpf:ElevationAssist.Elevation" Value="Dp0"/>
+        </Style>
+        <Storyboard x:Key="MainInfo_S">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainInfo" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.671"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainInfo" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.659"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainInfo" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackThis" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="BackThis" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MainInfo" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.5000000" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainPage" Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="5">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Back" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="MainInfo_C">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainInfo" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1.165"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainInfo" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1.227"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="BackThis" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackThis" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.4000000" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainInfo" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MainInfo" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainPage" Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Back" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Hint">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="PopUp" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                <EasingThicknessKeyFrame KeyTime="00:00:00" Value="0,608,0,0">
+                    <EasingThicknessKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingThicknessKeyFrame.EasingFunction>
+                </EasingThicknessKeyFrame>
+                <EasingThicknessKeyFrame KeyTime="00:00:00.5000000" Value="0,540,0,0">
+                    <EasingThicknessKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingThicknessKeyFrame.EasingFunction>
+                </EasingThicknessKeyFrame>
+                <EasingThicknessKeyFrame KeyTime="00:00:03.1000000" Value="0,540,0,0">
+                    <EasingThicknessKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseOut"/>
+                    </EasingThicknessKeyFrame.EasingFunction>
+                </EasingThicknessKeyFrame>
+            </ThicknessAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PopUp" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.1000000" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.4000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PopUp" Storyboard.TargetProperty="(UIElement.Effect).(DropShadowEffect.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0.2">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.1000000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.4000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PopUp" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.5000000" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="InfoShow_S">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainInfo" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.926"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainInfo" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.87"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainInfo" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="-10.155"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainInfo" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="-9.99"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Grid x:Name="Grid" Clip="M0,10 C0,4.4771525 4.4771525,0 10,0 L940,0 C945.52285,0 950,4.4771525 950,10 L950,590 C950,595.52285 945.52285,600 940,600 L10,600 C4.4771525,600 0,595.52285 0,590 z" RenderTransformOrigin="0.5,0.5" Background="White">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <Grid x:Name="MainPage">
+            <Grid.Effect>
+                <BlurEffect Radius="0" RenderingBias="Performance" KernelType="Gaussian"/>
+            </Grid.Effect>
+            <Image x:Name="BackImage" Source="/Image/Back.png" RenderOptions.BitmapScalingMode="HighQuality" OpacityMask="Black" Stretch="UniformToFill">
+                <Image.Effect>
+                    <BlurEffect x:Name="ImageBlur" Radius="0"/>
+                </Image.Effect>
+            </Image>
+            <Rectangle x:Name="BackMask" Stroke="Black" RadiusX="10" RadiusY="10" StrokeThickness="0" Fill="White" Opacity="0"/>
+            <Rectangle Stroke="Black" Margin="879,0,0,0" StrokeThickness="0" Fill="#7FFFFFFF"/>
+            <wpf:Card x:Name="MainHome" Background="{x:Null}">
+                <TabControl x:Name="TabControl" Style="{StaticResource MaterialDesignNavigationRailTabControl}" TabStripPlacement="Right" Background="{x:Null}" BorderBrush="#FFACACAC" SelectionChanged="TabControl_SelectionChanged">
+                    <TabItem x:Name="Home">
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto">
+                                <wpf:PackIcon x:Name="packIcon" Width="24" Height="24" HorizontalAlignment="Center" Kind="Home" />
+                                <TextBlock HorizontalAlignment="Center" Text="首页" FontFamily="Microsoft YaHei UI" FontWeight="Bold" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                    <TabItem x:Name="Class">
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto">
+                                <wpf:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="BookmarkPlus" />
+                                <TextBlock HorizontalAlignment="Center" Text="课堂" FontFamily="Microsoft YaHei UI" FontWeight="Bold" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                    <TabItem x:Name="InfoS">
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto">
+                                <wpf:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Message" />
+                                <TextBlock HorizontalAlignment="Center" Text="消息" FontFamily="Microsoft YaHei UI" FontWeight="Bold" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                    <TabItem x:Name="Personal">
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto">
+                                <wpf:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Account" />
+                                <TextBlock HorizontalAlignment="Center" Text="个人" FontWeight="Bold" FontFamily="Microsoft YaHei UI" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                    <TabItem x:Name="Set">
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto">
+                                <wpf:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Cog" />
+                                <TextBlock HorizontalAlignment="Center" Text="设置" FontFamily="Microsoft YaHei UI" FontWeight="Bold" />
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
+                </TabControl>
+            </wpf:Card>
+            <Rectangle x:Name="Back" RadiusX="9.2" RadiusY="9.2" StrokeThickness="1.5" Stroke="{Binding Foreground, ElementName=Progr}" d:IsHidden="True"/>
+            <ListBox x:Name="ExitBox" Margin="895,545,15,15" Height="40" Width="40" Focusable="False" MouseLeave="ExitBox_MouseLeave" SelectionChanged="ExitBox_SelectionChanged" ToolTip="退出程序" Clip="M0.5,10.5 C0.5,4.9771525 4.9771525,0.5 10.5,0.5 L29.5,0.5 C35.022847,0.5 39.5,4.9771525 39.5,10.5 L39.5,29.5 C39.5,35.022847 35.022847,39.5 29.5,39.5 L10.5,39.5 C4.9771525,39.5 0.5,35.022847 0.5,29.5 z">
+                <wpf:PackIcon Width="24" Height="24" Kind="ExitToApp" Foreground="#99000000" />
+            </ListBox>
+            <Canvas x:Name="TopS" MouseMove="Canvas_MouseMove" Margin="0,0,75,570" Background="#00000000">
+                <TextBlock Height="20" TextWrapping="Wrap" Width="345" FontFamily="Roboto" Foreground="{Binding Foreground, ElementName=Progr}" HorizontalAlignment="Left" Canvas.Left="10" Canvas.Top="10" VerticalAlignment="Center" ToolTip="＞﹏＜" FontWeight="Bold"><Run x:Name="Info" Language="zh-cn" Text="你好同学！"  FontFamily="Roboto"/></TextBlock>
+            </Canvas>
+            <Grid x:Name="Con" Margin="1.5,0,72,1.5" SnapsToDevicePixels="True">
+                <Grid x:Name="Front" Margin="0,33,0,0" d:IsHidden="True" >
+                    <ListBox Style="{DynamicResource AnimateListStyle}" ScrollViewer.CanContentScroll="False" x:Name="ListBoxMain" Background="{x:Null}" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" ScrollViewer.VerticalScrollBarVisibility="Hidden" MouseLeftButtonUp="ListBoxMain_MouseLeftButtonUp" ClipToBounds="True" FontSize="12" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" SnapsToDevicePixels="True" Margin="0,39,0,0"/>
+                    <TextBlock HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" FontFamily="Microsoft YaHei UI" FontWeight="Bold" FontSize="15" Margin="10,10,0,0"><Run Language="zh-cn" Text="活动公示："/></TextBlock>
+                </Grid>
+                <Grid x:Name="Erke" Margin="0,20,0,0" d:IsHidden="True">
+                    <TabControl x:Name="Control" VerticalAlignment="Top" SelectionChanged="Control_SelectionChanged" Margin="0,4,0,0">
+                        <TabItem Header="未开始" FontFamily="Microsoft YaHei UI" FontWeight="Bold" Background="{x:Null}"/>
+                        <TabItem Header="进行中" FontFamily="Microsoft YaHei UI" FontWeight="Bold"/>
+                        <TabItem  Header="已结束" FontFamily="Microsoft YaHei UI"/>
+                    </TabControl>
+                    <ListBox x:Name="NotStart" Style="{StaticResource AnimateListStyle}" ScrollViewer.CanContentScroll="False" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,52,0,0" ScrollViewer.VerticalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" MouseMove="NotStart_MouseMove"/>
+                    <Grid x:Name="HintInfo" Margin="0,252,0,292">
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10,0,0,0">
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Height="17"><Run x:Name="TextThis" Text="呀"/></TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="MeInfo" Margin="0,36,0,0" d:IsHidden="True">
+                    <ListBox  Style="{StaticResource AnimateListStyle}" ScrollViewer.CanContentScroll="False" x:Name="NotifyS" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,32,0,0" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" MouseLeftButtonUp="NotifyS_MouseLeftButtonUp"/>
+                    <TextBlock HorizontalAlignment="Left" Height="20" Margin="10,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" FontFamily="Microsoft YaHei UI" FontWeight="Bold" FontSize="15"><Run Language="zh-cn" Text="我的消息"/><Run Text="："/></TextBlock>
+                    <Grid x:Name="MailInfo" Margin="0,239,0,295" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10,0,0,0">
+                            <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Height="17"><Run x:Name="MailText" Text="呀"/></TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="Individual" Margin="0,36,0,0">
+                    <local:HomePage x:Name="HomeInfo"/>
+                </Grid>
+                <Grid x:Name="SetTing" Margin="0,36,0,0" d:IsHidden="True">
+                    <Interface:SetPage x:Name="AppSet"/>
+                </Grid>
+                <Grid x:Name="LoadIng" Margin="0,280,0,296" d:IsHidden="True">
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10,0,0,0">
+                        <ProgressBar x:Name="Progr" Style="{StaticResource MaterialDesignCircularProgressBar}" Height="20" Margin="0,0,10,0" IsIndeterminate="True" SmallChange="1" />
+                        <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Height="17"><Run x:Name="TextPage" Text="玩命加载中ING..."/></TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Rectangle x:Name="BackThis" StrokeThickness="0" MouseUp="BackThis_MouseUp" Fill="#7F000000" d:IsHidden="True"/>
+        <Grid x:Name="MainInfo" Margin="80,80,80,80" RenderTransformOrigin="0.5,0.5" Width="810" Height="460" HorizontalAlignment="Center" VerticalAlignment="Center" SnapsToDevicePixels="False" Clip="M10,19.565217 C10,14.282494 14.366606,10 19.753086,10 L790.24691,10 C795.6334,10 800,14.282494 800,19.565217 L800,440.43478 C800,445.71751 795.6334,450 790.24691,450 L19.753086,450 C14.366606,450 10,445.71751 10,440.43478 z" Background="White" d:IsHidden="True">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+        </Grid>
+        <Grid x:Name="PopUp" Margin="0,540,0,0" VerticalAlignment="Top" MinWidth="134" MinHeight="30" HorizontalAlignment="Center">
+            <Grid.Effect>
+                <DropShadowEffect Direction="-50" BlurRadius="3" Opacity="0.2" ShadowDepth="1"/>
+            </Grid.Effect>
+            <Rectangle Stroke="{Binding Foreground, ElementName=Progr}" RadiusX="10" RadiusY="10" Fill="White"/>
+            <Label x:Name="HintText" Content="这里空空如也..." FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SnapsToDevicePixels="True" FontWeight="Bold" Margin="10,2,10,0"/>
+        </Grid>
+    </Grid>
+</Window>

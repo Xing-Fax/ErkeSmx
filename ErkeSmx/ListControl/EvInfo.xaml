@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="ErkeSmx.EvInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ErkeSmx" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" Height="135" Width="860" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Top"  FontFamily="Roboto" Initialized="UserControl_Initialized">
+    <Grid x:Name="grid" Opacity="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="860">
+        <Image x:Name="Image" RenderOptions.BitmapScalingMode="HighQuality"  UseLayoutRounding="True" HorizontalAlignment="Left" Height="80" Margin="10,45,0,0" VerticalAlignment="Top" Width="150" Source="/Image/Null.png" Stretch="UniformToFill" Clip="M0.5,9.7105263 C0.5,5.1759778 4.3784635,1.5 9.1627907,1.5 L140.83721,1.5 C145.62154,1.5 149.5,5.1759778 149.5,9.7105263 L149.5,71.289474 C149.5,75.824022 145.62154,79.5 140.83721,79.5 L9.1627907,79.5 C4.3784635,79.5 0.5,75.824022 0.5,71.289474 z"/>
+        <TextBlock TextWrapping="Wrap" Margin="10,10,0,0" FontSize="22" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30"><Run x:Name="Title" Language="zh-cn" Text="Null"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="188,53,0,0" Foreground="#DD000000" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Height="10" Width="179"><Run x:Name="Time" Language="zh-cn" Text="Null"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="188,71,0,0" Foreground="#DD000000" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Height="10" Width="179"><Run x:Name="Address" Language="zh-cn" Text="Null"/><LineBreak/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="188,89,0,0" Foreground="#DD000000" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Height="10" Width="177"><Run x:Name="Type" Language="zh-cn" Text="Null"/></TextBlock>
+        <materialDesign:PackIcon Kind="ClockTimeFour" Margin="172,52,0,0" Width="13" Height="13" Foreground="#CC000000" />
+        <materialDesign:PackIcon Kind="MapMarker" Margin="172,70,0,0" Width="13" Height="13" Foreground="#CC000000" />
+        <materialDesign:PackIcon Kind="Storefront" Margin="172,88,0,0" Width="13" Height="13" Foreground="#CC000000" />
+        <TextBlock x:Name="Color" TextWrapping="Wrap" Margin="179,108,0,0" Foreground="#FFFE624C" HorizontalAlignment="Left" VerticalAlignment="Top" Height="16" FontWeight="Bold"><Run x:Name="Sum" Text="#招募 0 人"/></TextBlock>
+    </Grid>
+</UserControl>

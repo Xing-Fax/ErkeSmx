@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="ErkeSmx.People"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ErkeSmx"
+             mc:Ignorable="d" Width="548.2" Height="35" FontFamily="Roboto">
+    <Grid>
+        <TextBlock TextWrapping="Wrap" Margin="35,10,393,10"><Run x:Name="Name" Language="zh-cn" Text="Title"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="375,10,10,10" TextAlignment="Right"><Run x:Name="ID" Language="zh-cn" Text="Phone"/></TextBlock>
+        <Image x:Name="Image" RenderOptions.BitmapScalingMode="HighQuality"  UseLayoutRounding="True" Margin="5,5,518,5" Width="25" Clip="M0.2,4.232 C0.2,2.0051879 1.990861,0.2 4.1999999,0.2 L21.4,0.2 C23.609138,0.2 25.399999,2.0051879 25.399999,4.232 L25.399999,21.368 C25.399999,23.594812 23.609138,25.4 21.4,25.4 L4.1999999,25.4 C1.990861,25.4 0.2,23.594812 0.2,21.368 z" Stretch="UniformToFill" Source="/Image/default.jpg"/>
+        <TextBlock TextWrapping="Wrap" Margin="155,10,173,10" TextAlignment="Center"><Run x:Name="Phone" Language="zh-cn" Text="Phone"/></TextBlock>
+
+    </Grid>
+</UserControl>

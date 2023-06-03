@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="ErkeSmx.Interface.MeInfoData"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ErkeSmx"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" HorizontalAlignment="Center" VerticalAlignment="Center" SnapsToDevicePixels="True"  FontFamily="Roboto">
+    <Grid x:Name="MainInfo" Margin="5,5,5,5" RenderTransformOrigin="0.5,0.5">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <Image x:Name="InfoImage" RenderOptions.BitmapScalingMode="HighQuality" Height="440" Width="790" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Image/Back.png" Stretch="UniformToFill" Clip="M0,10 C0,4.4771525 4.4771525,0 10,0 L780,0 C785.52285,0 790,4.4771525 790,10 L790,430 C790,435.52285 785.52285,440 780,440 L10,440 C4.4771525,440 0,435.52285 0,430 z">
+            <Image.Effect>
+                <BlurEffect x:Name="Effect" Radius="0"/>
+            </Image.Effect>
+        </Image>
+        <Rectangle x:Name="BackImg" RadiusX="10" RadiusY="10" StrokeThickness="0" Fill="White" Opacity="0"/>
+        <Rectangle Stroke="{Binding Foreground, ElementName=Progr}" RadiusY="9.4" RadiusX="9.4"/>
+        <Button Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"  Margin="760,10,10,410" Width="20" Height="20" Background="#00FE624C" BorderBrush="{x:Null}" Click="Button_Click" IsCancel="True">
+            <materialDesign:PackIcon Kind="Close" Foreground="#99000000" />
+        </Button>
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="15,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontWeight="Bold" Foreground="{Binding Foreground, ElementName=Progr}" FontSize="14"><Run Language="zh-cn" Text="详情信息"/></TextBlock>
+        <Canvas x:Name="CanvasPage" Margin="0,37,0,0">
+            <TextBlock x:Name="Title" TextWrapping="Wrap" FontSize="24" FontFamily="Roboto" Height="29" Canvas.Left="30" Canvas.Top="10" Width="447" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="Black"><Run x:Name="TitleText" Language="zh-cn" Text="Null"/></TextBlock>
+            <Rectangle Height="34" Stroke="{Binding Foreground, ElementName=Progr}" Width="5" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="7.5" Canvas.Left="15" Fill="{Binding Foreground, ElementName=Progr}"/>
+            <Canvas Height="22" Width="790" HorizontalAlignment="Center" Canvas.Top="46.5" VerticalAlignment="Top">
+                <materialDesign:PackIcon Kind="AccountCreditCardOutline" Canvas.Left="15" Canvas.Top="3" Foreground="{Binding Foreground, ElementName=Progr}" Opacity="0.8"/>
+                <materialDesign:PackIcon Kind="ClockTimeNineOutline" Canvas.Left="167" Canvas.Top="3" Foreground="{Binding Foreground, ElementName=Progr}" Opacity="0.8"/>
+                <TextBlock TextWrapping="Wrap" Canvas.Left="36" Canvas.Top="3.8" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#DD000000"><Run Language="zh-cn" Text="发布人："/></TextBlock>
+                <TextBlock TextWrapping="Wrap" Canvas.Left="253" Canvas.Top="3.8" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#DD000000"><Run x:Name="Time" Language="zh-cn" Text="Null"/></TextBlock>
+                <TextBlock TextWrapping="Wrap" Canvas.Left="188" Canvas.Top="3.8" HorizontalAlignment="Left" VerticalAlignment="Center" Width="65" Foreground="#DD000000"><Run Language="zh-cn" Text="发布时间："/></TextBlock>
+                <TextBlock TextWrapping="Wrap" Canvas.Left="84" Canvas.Top="3.8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Foreground="#DD000000"><Run x:Name="Name" Language="zh-cn" Text="Null"/></TextBlock>
+            </Canvas>
+            <Canvas Height="301" Width="770" HorizontalAlignment="Center" Canvas.Top="92.5" VerticalAlignment="Top" Canvas.Left="10">
+                <ScrollViewer Height="301" Width="770" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <TextBlock TextWrapping="Wrap"><Run x:Name="Content" Language="zh-cn" Text="Null" FontWeight="Bold"/></TextBlock>
+                </ScrollViewer>
+            </Canvas>
+        </Canvas>
+        <Grid x:Name="LoadIng" Margin="10,210,10,210">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10,0,0,0">
+                <ProgressBar x:Name="Progr" Style="{StaticResource MaterialDesignCircularProgressBar}" Height="20" Margin="0,0,10,0" IsIndeterminate="True" SmallChange="1" />
+                <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Height="17"><Run x:Name="TextPage" Text="玩命加载中ING..."/></TextBlock>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

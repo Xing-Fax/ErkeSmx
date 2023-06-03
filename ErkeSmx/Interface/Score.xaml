@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="ErkeSmx.Score"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ErkeSmx" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" Height="564" Width="658" FontFamily="Roboto">
+    <Grid >
+        <TextBlock TextWrapping="Wrap" Margin="10,20,10,509" FontSize="20" FontWeight="Bold" TextAlignment="Center" Foreground="{Binding Background, ElementName=button}"><Run Language="zh-cn" Text="我的第二课堂成绩单" FontFamily="Roboto"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="97,62,518,473" FontWeight="Bold"><Run Language="zh-cn" Text="姓名："/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="97,86,518,449" FontWeight="Bold"><Run Language="zh-cn" Text="学号："/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="370,62,221,473" FontWeight="Bold"><Run Language="zh-cn" Text="入学时间："/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="370,86,221,449" FontWeight="Bold"><Run Language="zh-cn" Text="所在班级："/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="140,62,381,473"><Run x:Name="Name" Language="zh-cn" Text=""/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="140,86,381,449"><Run x:Name="ID" Language="zh-cn" Text=""/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="437,62,76,473"><Run x:Name="InTime" Language="zh-cn" Text=""/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="437,86,76,449"><Run x:Name="Class" Language="zh-cn" Text=""/></TextBlock>
+        <materialDesign:PackIcon Kind="StarShootingOutline" Margin="97,120,0,0" Width="30" Height="30" Foreground="{Binding Background, ElementName=button}" />
+        <TextBlock TextWrapping="Wrap" Margin="132,125,397,409" FontSize="16" FontWeight="Bold" Foreground="{Binding Background, ElementName=button}"><Run x:Name="Credit" Language="zh-cn" Text="共计学分：0 分" FontFamily="Roboto"/></TextBlock>
+        <materialDesign:PackIcon Kind="ClockTimeTwoOutline" Margin="370,120,0,0" Width="30" Height="30" Foreground="{Binding Background, ElementName=button}" />
+        <TextBlock TextWrapping="Wrap" Margin="405,125,124,409" FontSize="16" FontWeight="Bold" Foreground="{Binding Background, ElementName=button}"><Run x:Name="Hours" Language="zh-cn" Text="课堂学时：0 时" FontFamily="Roboto"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="47,175,543,364" FontWeight="Bold"><Run Language="zh-cn" Text="成绩详明："/></TextBlock>
+        <ScrollViewer Margin="47,0,46,19" Height="340" VerticalAlignment="Bottom" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="ErkeList"/>
+        </ScrollViewer>
+        <TextBlock TextWrapping="Wrap" Margin="364,548,46,4" Foreground="#DD000000" TextAlignment="Right" FontSize="10"><Run x:Name="Time" Language="zh-cn" Text="成绩点生成时间"/></TextBlock>
+        <Button x:Name="button" Content="" Margin="0,0,613,512" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden"/>
+    </Grid>
+</UserControl>
