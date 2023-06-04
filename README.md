@@ -6,7 +6,7 @@
 
 ## 界面
 
-![img](image\Snipaste_2023-06-03_19-04-07.png)
+![img](image/Snipaste_2023-06-03_19-04-07.png)
 
 ![Snipaste_2023-06-04_22-27-02](image/Snipaste_2023-06-04_22-27-02.png)
 
