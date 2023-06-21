@@ -39,7 +39,6 @@
 - **三门峡职业技术学院第二课堂**
   主页链接： [第二课堂 (smxpt.cn)](https://erke.smxpt.cn/h5/#/pages/index/login) 
   接口文档：[待完善...](./)
-
 - **MaterialDesignThemes**
    [MaterialDesignInXAML](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit) 
 - **Microsoft.Xaml.Behaviors.Wpf**
@@ -48,6 +47,10 @@
    [Json.NET - Newtonsoft](https://www.newtonsoft.com/json) 
 - **Portable.BouncyCastle**
    [The Legion of the Bouncy Castle C# Cryptography APIs](https://www.bouncycastle.org/csharp/) 
+
+## 已知问题
+
+2023-06-21 突然发现个人中心的第二课堂成绩单发生了更新，所以就先注释掉部分代码，后续会推送更新
 
 ## 其他
 
