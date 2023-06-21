@@ -123,42 +123,43 @@ namespace ErkeSmx
 
         private void PreloadComplete(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (PublicVar.TScore.code != 1)
-            {
-                LoadIng.Visibility = Visibility.Visible;
-                HomeInfo.TextPage.Text = "肥肠抱歉，加载失败辣~";
-                Progr.Value = 100;
-                HomeInfo.Score.Visibility = Visibility.Collapsed;
-                return;
-            }
 
-            HomeInfo.Score.Name.Text = PublicVar.TScore.res.name;
-            HomeInfo.Score.ID.Text = PublicVar.TScore.res.s_number;
-            HomeInfo.Score.InTime.Text = PublicVar.TScore.res.ruxue_date;
-            HomeInfo.Score.Class.Text = PublicVar.TScore.res.dept_name;
+            //if (PublicVar.TScore.code != 1)
+            //{
+            //    LoadIng.Visibility = Visibility.Visible;
+            //    HomeInfo.TextPage.Text = "肥肠抱歉，加载失败辣~";
+            //    Progr.Value = 100;
+            //    HomeInfo.Score.Visibility = Visibility.Collapsed;
+            //    return;
+            //}
 
-            HomeInfo.Score.Credit.Text = "共计学分：" + PublicVar.TScore.res.erke_jifen + " 分";
-            HomeInfo.Score.Hours.Text = "共计学时：" + PublicVar.TScore.res.erke_count + " 时";
-            HomeInfo.Score.Time.Text = "成绩点生成时间：" + PublicVar.TScore.res.endTime;
+            //HomeInfo.Score.Name.Text = PublicVar.TScore.res.name;
+            //HomeInfo.Score.ID.Text = PublicVar.TScore.res.s_number;
+            //HomeInfo.Score.InTime.Text = PublicVar.TScore.res.ruxue_date;
+            //HomeInfo.Score.Class.Text = PublicVar.TScore.res.dept_name;
 
-            HomeInfo.MeName.Text = PublicVar.TScore.res.name;
-            HomeInfo.Image.Source = new BitmapImage(new Uri(IntAddr.Url + PublicVar.MyInfo.res.avatar));
+            //HomeInfo.Score.Credit.Text = "共计学分：" + PublicVar.TScore.res.erke_jifen + " 分";
+            //HomeInfo.Score.Hours.Text = "共计学时：" + PublicVar.TScore.res.erke_count + " 时";
+            //HomeInfo.Score.Time.Text = "成绩点生成时间：" + PublicVar.TScore.res.endTime;
 
-            if (PublicVar.TScore.res.erke_list.Count == 0)
-            {
-                HomeInfo.MailInfo.Visibility = Visibility.Visible;
-                HomeInfo.MailText.Text = "你尚未参加过任何项目(＃°Д°)";
-                return;
-            }
+            //HomeInfo.MeName.Text = PublicVar.TScore.res.name;
+            //HomeInfo.Image.Source = new BitmapImage(new Uri(IntAddr.Url + PublicVar.MyInfo.res.avatar));
 
-            for(int i = 0;i < PublicVar.TScore.res.erke_list.Count;i++)
-            {
-                ScoreInfo ScoreList = new ScoreInfo();
-                ScoreList.Title.Text = PublicVar.TScore.res.erke_list[i].erke_name;
-                ScoreList.Time.Text = PublicVar.TScore.res.erke_list[i].erke_date;
-                ScoreList.Count.Text = PublicVar.TScore.res.erke_list[i].erke_length + " 小时";
-                HomeInfo.Score.ErkeList.Children.Add(ScoreList);
-            }
+            //if (PublicVar.TScore.res.erke_list.Count == 0)
+            //{
+            //    HomeInfo.MailInfo.Visibility = Visibility.Visible;
+            //    HomeInfo.MailText.Text = "你尚未参加过任何项目(＃°Д°)";
+            //    return;
+            //}
+
+            //for(int i = 0;i < PublicVar.TScore.res.erke_list.Count;i++)
+            //{
+            //    ScoreInfo ScoreList = new ScoreInfo();
+            //    ScoreList.Title.Text = PublicVar.TScore.res.erke_list[i].erke_name;
+            //    ScoreList.Time.Text = PublicVar.TScore.res.erke_list[i].erke_date;
+            //    ScoreList.Count.Text = PublicVar.TScore.res.erke_list[i].erke_length + " 小时";
+            //    HomeInfo.Score.ErkeList.Children.Add(ScoreList);
+            //}
         }
 
         private void HideHint()

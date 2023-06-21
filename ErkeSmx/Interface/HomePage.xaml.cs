@@ -107,33 +107,33 @@ namespace ErkeSmx
                 return;
             }
 
-            BeginStoryboard((Storyboard)FindResource("Page" + Index + "_S"));
-            LoadIng.Visibility = Visibility.Collapsed;
+            //BeginStoryboard((Storyboard)FindResource("Page" + Index + "_S"));
+            //LoadIng.Visibility = Visibility.Collapsed;
 
-            Score.Name.Text = PublicVar.TScore.res.name;
-            Score.ID.Text = PublicVar.TScore.res.s_number;
-            Score.InTime.Text = PublicVar.TScore.res.ruxue_date;
-            Score.Class.Text = PublicVar.TScore.res.dept_name;
+            //Score.Name.Text = PublicVar.TScore.res.name;
+            //Score.ID.Text = PublicVar.TScore.res.s_number;
+            //Score.InTime.Text = PublicVar.TScore.res.ruxue_date;
+            //Score.Class.Text = PublicVar.TScore.res.dept_name;
 
-            Score.Credit.Text = "共计学分：" + PublicVar.TScore.res.erke_jifen + " 分";
-            Score.Hours.Text = "共计学时：" + PublicVar.TScore.res.erke_count + " 时";
-            Score.Time.Text = "成绩点生成时间：" + PublicVar.TScore.res.endTime;
+            //Score.Credit.Text = "共计学分：" + PublicVar.TScore.res.erke_jifen + " 分";
+            //Score.Hours.Text = "共计学时：" + PublicVar.TScore.res.erke_count + " 时";
+            //Score.Time.Text = "成绩点生成时间：" + PublicVar.TScore.res.endTime;
 
-            if (PublicVar.TScore.res.erke_list.Count == 0)
-            {
-                MailInfo.Visibility = Visibility.Visible;
-                MailText.Text = "你尚未参加过任何项目(＃°Д°)";
-                return;
-            }
+            //if (PublicVar.TScore.res.erke_list.Count == 0)
+            //{
+            //    MailInfo.Visibility = Visibility.Visible;
+            //    MailText.Text = "你尚未参加过任何项目(＃°Д°)";
+            //    return;
+            //}
 
-            for (int i = 0; i < PublicVar.TScore.res.erke_list.Count; i++)
-            {
-                ScoreInfo ScoreList = new ScoreInfo();
-                ScoreList.Title.Text = PublicVar.TScore.res.erke_list[i].erke_name;
-                ScoreList.Time.Text = PublicVar.TScore.res.erke_list[i].erke_date;
-                ScoreList.Count.Text = PublicVar.TScore.res.erke_list[i].erke_length + " 小时";
-                Score.ErkeList.Children.Add(ScoreList);
-            }
+            //for (int i = 0; i < PublicVar.TScore.res.erke_list.Count; i++)
+            //{
+            //    ScoreInfo ScoreList = new ScoreInfo();
+            //    ScoreList.Title.Text = PublicVar.TScore.res.erke_list[i].erke_name;
+            //    ScoreList.Time.Text = PublicVar.TScore.res.erke_list[i].erke_date;
+            //    ScoreList.Count.Text = PublicVar.TScore.res.erke_list[i].erke_length + " 小时";
+            //    Score.ErkeList.Children.Add(ScoreList);
+            //}
         }
 
         private void GetScore()
