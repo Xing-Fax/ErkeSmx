@@ -2,7 +2,7 @@
 
 ## 摘要
 
-基于WPF和.NET Framework 4.8的三门峡职业技术学院第三方客户端
+基于WPF和.NET Framework 4.8的第三方客户端
 
 ## 界面
 
