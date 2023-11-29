@@ -14,7 +14,7 @@
         <TextBlock TextWrapping="Wrap" Margin="140,62,381,473"><Run x:Name="Name" Language="zh-cn" Text=""/></TextBlock>
         <TextBlock TextWrapping="Wrap" Margin="140,86,381,449"><Run x:Name="ID" Language="zh-cn" Text=""/></TextBlock>
         <TextBlock TextWrapping="Wrap" Margin="437,62,76,473"><Run x:Name="InTime" Language="zh-cn" Text=""/></TextBlock>
-        <TextBlock TextWrapping="Wrap" Margin="437,86,76,449"><Run x:Name="Class" Language="zh-cn" Text=""/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="437,86,23,449"><Run x:Name="Class" Language="zh-cn" Text=""/></TextBlock>
         <materialDesign:PackIcon Kind="StarShootingOutline" Margin="97,120,0,0" Width="30" Height="30" Foreground="{Binding Background, ElementName=button}" />
         <TextBlock TextWrapping="Wrap" Margin="132,125,358,409" FontSize="16" FontWeight="Bold" Foreground="{Binding Background, ElementName=button}"><Run x:Name="Credit" Language="zh-cn" Text="获得学分：0 分" FontFamily="Roboto"/></TextBlock>
         <materialDesign:PackIcon Kind="ClockTimeTwoOutline" Margin="370,120,0,0" Width="30" Height="30" Foreground="{Binding Background, ElementName=button}" />
