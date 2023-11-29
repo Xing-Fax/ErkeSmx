@@ -1,5 +1,6 @@
 ﻿using ErkeSmx.Interface;
 using ErkeSmx.Request;
+using Org.BouncyCastle.Crypto.Fpe;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,7 @@ namespace ErkeSmx
         readonly System.Timers.Timer Load = new System.Timers.Timer(300);
         public MainWindow()
         {
+
             InitializeComponent();
             Main.Visibility = Visibility.Hidden;
             MainHint.Window = this;
@@ -119,47 +121,57 @@ namespace ErkeSmx
             string Form = "token=" + PublicVar.Token;
             PublicVar.TScore = JSON.Deserialize<Transcript>(Related.POST(IntAddr.Score, Form));
             PublicVar.MyInfo = JSON.Deserialize<MyInfo>(Related.POST(IntAddr.Info, Form));
+            
         }
 
         private void PreloadComplete(object sender, RunWorkerCompletedEventArgs e)
         {
 
-            //if (PublicVar.TScore.code != 1)
-            //{
-            //    LoadIng.Visibility = Visibility.Visible;
-            //    HomeInfo.TextPage.Text = "肥肠抱歉，加载失败辣~";
-            //    Progr.Value = 100;
-            //    HomeInfo.Score.Visibility = Visibility.Collapsed;
-            //    return;
-            //}
+            if (PublicVar.TScore.code != 1)
+            {
+                LoadIng.Visibility = Visibility.Visible;
+                HomeInfo.TextPage.Text = "肥肠抱歉，加载失败辣~";
+                Progr.Value = 100;
+                HomeInfo.Score.Visibility = Visibility.Collapsed;
+                return;
+            }
 
-            //HomeInfo.Score.Name.Text = PublicVar.TScore.res.name;
-            //HomeInfo.Score.ID.Text = PublicVar.TScore.res.s_number;
-            //HomeInfo.Score.InTime.Text = PublicVar.TScore.res.ruxue_date;
-            //HomeInfo.Score.Class.Text = PublicVar.TScore.res.dept_name;
+            HomeInfo.Score.Name.Text = PublicVar.TScore.res.name;
 
-            //HomeInfo.Score.Credit.Text = "共计学分：" + PublicVar.TScore.res.erke_jifen + " 分";
-            //HomeInfo.Score.Hours.Text = "共计学时：" + PublicVar.TScore.res.erke_count + " 时";
-            //HomeInfo.Score.Time.Text = "成绩点生成时间：" + PublicVar.TScore.res.endTime;
+            HomeInfo.Score.ID.Text = PublicVar.TScore.res.s_number;
+            HomeInfo.Score.InTime.Text = PublicVar.TScore.res.ruxue_date;
+            HomeInfo.Score.Class.Text = PublicVar.TScore.res.dept_name;
 
-            //HomeInfo.MeName.Text = PublicVar.TScore.res.name;
-            //HomeInfo.Image.Source = new BitmapImage(new Uri(IntAddr.Url + PublicVar.MyInfo.res.avatar));
+            HomeInfo.Score.Credit.Text = "获得学分：" + PublicVar.TScore.res.totalScore + " 分";
+            HomeInfo.Score.Hours.Text = "分数排名：" + PublicVar.TScore.res.sort;
+            HomeInfo.Score.Time.Text = "成绩点生成时间：" + PublicVar.TScore.res.endTime;
 
-            //if (PublicVar.TScore.res.erke_list.Count == 0)
+            HomeInfo.MeName.Text = PublicVar.TScore.res.name;
+            HomeInfo.Image.Source = new BitmapImage(new Uri(IntAddr.Url + PublicVar.MyInfo.res.avatar));
+
+            //if (PublicVar.TScore.res..Count == 0)
             //{
             //    HomeInfo.MailInfo.Visibility = Visibility.Visible;
             //    HomeInfo.MailText.Text = "你尚未参加过任何项目(＃°Д°)";
             //    return;
             //}
 
-            //for(int i = 0;i < PublicVar.TScore.res.erke_list.Count;i++)
-            //{
-            //    ScoreInfo ScoreList = new ScoreInfo();
-            //    ScoreList.Title.Text = PublicVar.TScore.res.erke_list[i].erke_name;
-            //    ScoreList.Time.Text = PublicVar.TScore.res.erke_list[i].erke_date;
-            //    ScoreList.Count.Text = PublicVar.TScore.res.erke_list[i].erke_length + " 小时";
-            //    HomeInfo.Score.ErkeList.Children.Add(ScoreList);
-            //}
+            for (int i = 0; i < PublicVar.TScore.res.indicators.Count; i++)
+            {
+                ScoreInfo ScoreList = new ScoreInfo();
+                ScoreList.Title.Text = PublicVar.TScore.res.indicators[i].name;
+                ScoreList.Count.Text = PublicVar.TScore.res.indicators[i].score + "/" +
+                                       PublicVar.TScore.res.indicators[i].max;
+
+                ScoreList.Bar.Maximum = PublicVar.TScore.res.indicators[i].max;
+                ScoreList.Bar.Value = PublicVar.TScore.res.indicators[i].score;
+
+
+                //ScoreList.Title.Text = PublicVar.TScore.res.erke_list[i].erke_name;
+                //ScoreList.Time.Text = PublicVar.TScore.res.erke_list[i].erke_date;
+                //ScoreList.Count.Text = PublicVar.TScore.res.erke_list[i].erke_length + " 小时";
+                HomeInfo.Score.ErkeList.Children.Add(ScoreList);
+            }
         }
 
         private void HideHint()

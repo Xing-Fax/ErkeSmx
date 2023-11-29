@@ -218,25 +218,25 @@
         <Grid x:Name="ErkeScore" Margin="212,0,9,0">
             <local:Score x:Name="Score"/>
         </Grid>
-        <Grid x:Name="ErkeGroup" Margin="212,0,9,0" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+        <Grid x:Name="ErkeGroup" Margin="212,0,9,0" ScrollViewer.VerticalScrollBarVisibility="Hidden" d:IsHidden="True">
             <local:Group x:Name="Group"/>
         </Grid>
-        <Grid x:Name="ErkePay" Margin="212,0,9,0">
+        <Grid x:Name="ErkePay" Margin="212,0,9,0" d:IsHidden="True">
             <local:Pay x:Name="Pay"/>
         </Grid>
-        <Grid x:Name="ErkeSociety" Margin="212,0,9,0">
+        <Grid x:Name="ErkeSociety" Margin="212,0,9,0" d:IsHidden="True">
             <local:Society x:Name="Society"/>
         </Grid>
-        <Grid x:Name="ErkeInfo" Margin="212,0,9,0">
+        <Grid x:Name="ErkeInfo" Margin="212,0,9,0" d:IsHidden="True">
             <local:PersInfo x:Name="PersInfo" Margin="0,0,0,2"/>
         </Grid>
-        <Grid x:Name="LoadIng" Margin="212,272,9,272">
+        <Grid x:Name="LoadIng" Margin="212,272,9,272" d:IsHidden="True">
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10,0,0,0">
                 <ProgressBar x:Name="Progr" Style="{StaticResource MaterialDesignCircularProgressBar}" Height="20" Margin="0,0,10,0" IsIndeterminate="True" SmallChange="1" />
                 <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Height="17"><Run x:Name="TextPage" Text="玩命加载中ING..."/></TextBlock>
             </StackPanel>
         </Grid>
-        <Grid x:Name="MailInfo" Margin="211,267,-1,267" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+        <Grid x:Name="MailInfo" Margin="211,267,-1,267" ScrollViewer.VerticalScrollBarVisibility="Hidden" d:IsHidden="True">
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10,0,0,0">
                 <TextBlock TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Height="17"><Run x:Name="MailText" Text="呀"/></TextBlock>
             </StackPanel>

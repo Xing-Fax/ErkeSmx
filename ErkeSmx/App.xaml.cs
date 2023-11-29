@@ -14,7 +14,6 @@ using static System.Net.WebRequestMethods;
 
 namespace ErkeSmx
 {
-
     public struct MeInfo
     {
         public int code { get; set; }
@@ -116,6 +115,7 @@ namespace ErkeSmx
         public string s_number { get; set; }
     }
 
+    //成绩单
     public struct Transcript
     {
         public int code { get; set; }
@@ -127,20 +127,44 @@ namespace ErkeSmx
     {
         public string dept_name { get; set; }
         public string endTime { get; set; }
-        public string erke_count { get; set; }
-        public string erke_jifen { get; set; }
+        //public string erke_count { get; set; }
+        //public string erke_jifen { get; set; }
         public string name { get; set; }
         public string ruxue_date { get; set; }
+        public string nstris_number { get; set; }
         public string s_number { get; set; }
-        public List<TranscriptList> erke_list { get; set; }
+        public string sort  { get; set; }
+        public string totalScore { get; set; }
+        public string xymc { get; set; }
+        public string zymc { get; set; }
+
+        //public List<TranscriptList> erke_list { get; set; }
+        public List<indicator> indicator { get; set; }
+        public List<indicators> indicators { get; set; }
+        //public List<typeScores> typeScores { get; set; }
     }
 
-    public struct TranscriptList
+    public struct indicator
     {
-        public string erke_date { get; set; }
-        public string erke_length { get; set; }
-        public string erke_name { get; set; }
+        public string id { get; set; }
+        public string name { get; set; }
     }
+
+    public struct indicators
+    {
+        public float max { get; set; }
+        public string name { get; set; }
+        public float score { get; set; }
+    }
+
+
+    //public struct TranscriptList
+    //{
+
+    //    public string erke_date { get; set; }
+    //    public string erke_length { get; set; }
+    //    public string erke_name { get; set; }
+    //}
 
     public struct Mail
     {
@@ -342,6 +366,7 @@ namespace ErkeSmx
         public static SocietyS   Society      = new SocietyS();
         public static MyInfo     MyInfo       = new MyInfo();
         public static MeInfo     MeData       = new MeInfo();
+
     }
 
     /// <summary>

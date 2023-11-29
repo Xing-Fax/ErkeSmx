@@ -53,6 +53,8 @@ namespace ErkeSmx
 
             NameTextBox.Text = Properties.Settings.Default.UserName;
 
+            //MessageBox.Show(Operate.GetID());
+            //MessageBox.Show(Properties.Settings.Default.Password);
             if (Properties.Settings.Default.RePassw)
                 PasswordBox.Password = Operate.AesDecrypt(Properties.Settings.Default.Password , Operate.GetID());
 
@@ -73,7 +75,7 @@ namespace ErkeSmx
                 BeginStoryboard((Storyboard)FindResource("Login"));
         }
 
-        private void Error(string Info)
+        public void Error(string Info)
         {
             Dispatcher.Invoke(new Action(() => { HintText.Content = "   " + Info + "~   "; }));
             Dispatcher.Invoke(new Action(() => { BeginStoryboard((Storyboard)FindResource("Hint")); }));
