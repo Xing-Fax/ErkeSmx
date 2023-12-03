@@ -4,6 +4,8 @@
 
 基于WPF和.NET Framework 4.8的第三方客户端
 
+接口文档 [戳这里 ←](https://github.com/Xing-Fax/ErkeSmx/blob/master/API/interface.md)
+
 ## 界面
 
 ![img](image/Snipaste_2023-06-03_19-04-07.png)
@@ -26,8 +28,8 @@
 - [x] 得到个人成绩单以及其他菜单功能
 - [x] 程序个性化功能
 - [x] 用户头像修改
-- [ ] 团费缴纳页面
-- [ ] 我的社团页面
+- [ ] 团费缴纳页面(学院未开放)
+- [ ] 我的社团页面(学院未开放)
 - [ ] 个人信息修改
 - [ ] 程序使用代理
 - [ ] 活动报名
@@ -38,7 +40,7 @@
 
 - **三门峡职业技术学院第二课堂**
   主页链接： [第二课堂 (smxpt.cn)](https://erke.smxpt.cn/h5/#/pages/index/login) 
-  接口文档：[待完善...](./)
+  接口文档：[三门峡职业技术学院第二课堂接口文档](https://github.com/Xing-Fax/ErkeSmx/blob/master/API/interface.md)
 - **MaterialDesignThemes**
    [MaterialDesignInXAML](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit) 
 - **Microsoft.Xaml.Behaviors.Wpf**
