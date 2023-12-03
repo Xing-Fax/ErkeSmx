@@ -20,10 +20,10 @@
         <materialDesign:PackIcon Kind="ClockTimeTwoOutline" Margin="370,120,0,0" Width="30" Height="30" Foreground="{Binding Background, ElementName=button}" />
         <TextBlock TextWrapping="Wrap" Margin="405,125,88,409" FontSize="16" FontWeight="Bold" Foreground="{Binding Background, ElementName=button}"><Run x:Name="Hours" FontFamily="Roboto" Language="zh-cn" Text="分数排名：0/0"/></TextBlock>
         <TextBlock TextWrapping="Wrap" Margin="47,175,543,364" FontWeight="Bold"><Run Language="zh-cn" Text="成绩详明："/></TextBlock>
-        <ScrollViewer Margin="47,0,46,19" Height="340" VerticalAlignment="Bottom" VerticalScrollBarVisibility="Auto">
+        <ScrollViewer Margin="47,195,46,0" Height="340" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto">
             <StackPanel x:Name="ErkeList"/>
         </ScrollViewer>
-        <TextBlock TextWrapping="Wrap" Margin="364,548,46,4" Foreground="#DD000000" TextAlignment="Right" FontSize="10"><Run x:Name="Time" Language="zh-cn" Text="成绩点生成时间"/></TextBlock>
+        <TextBlock TextWrapping="Wrap" Margin="364,545,46,7" Foreground="#DD000000" TextAlignment="Right" FontSize="10"><Run x:Name="Time" Language="zh-cn" Text="成绩点生成时间"/></TextBlock>
         <Button x:Name="button" Content="" Margin="0,0,613,512" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden"/>
     </Grid>
 </UserControl>

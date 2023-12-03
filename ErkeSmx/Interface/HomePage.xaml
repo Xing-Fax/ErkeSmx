@@ -199,7 +199,7 @@
     </UserControl.Resources>
     <Grid>
 
-        <Rectangle Stroke="{Binding Foreground, ElementName=Progr}" Margin="-45,0,674,-46" RadiusX="10" RadiusY="10" StrokeThickness="1.5" Clip="M45,0 L250,0 L250,562.5 L45,562.5 z" Fill="#99FFFFFF"/>
+        <Rectangle Stroke="{Binding Foreground, ElementName=Progr}" Margin="-45,0,674,-26" RadiusX="10" RadiusY="10" StrokeThickness="1.5" Clip="M45.75,-4.25 C45.75,-9.7728475 50.227153,-14.25 55.75,-14.25 L269.25,-14.25 C274.77285,-14.25 279.25,-9.7728475 279.25,-4.25 L279.25,553.25 C279.25,558.77285 274.77285,563.25 269.25,563.25 L55.75,563.25 C50.227153,563.25 45.75,558.77285 45.75,553.25 z" Fill="#99FFFFFF"/>
 
         <Rectangle Height="100" Stroke="Black" Width="100" Margin="50,40,729,424" RadiusX="10" RadiusY="10" StrokeThickness="0" Fill="#FFFAFAFA">
             <Rectangle.Effect>
@@ -213,7 +213,7 @@
             <TextBlock TextWrapping="Wrap" Canvas.Left="22" Canvas.Top="43.2" Foreground="{Binding Foreground, ElementName=Progr}" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14"><Run Text="上传头像" FontWeight="Bold"/></TextBlock>
         </Canvas>
         <TextBlock TextWrapping="Wrap" Margin="0,155,674,389" FontSize="16" TextAlignment="Center" FontWeight="Bold" Foreground="#CC000000"><Run x:Name="MeName" Language="zh-cn" Text="---"/></TextBlock>
-        <ListBox x:Name="Select"  Margin="0,195,675.5,0" Foreground="#DB000000" SelectionChanged="Select_SelectionChanged" SelectedIndex="0"/>
+        <ListBox x:Name="Select"  Margin="0,195,676,10" Foreground="#DB000000" SelectionChanged="Select_SelectionChanged" SelectedIndex="0"/>
         <Rectangle Stroke="{Binding Foreground, ElementName=Progr}" RadiusX="10" RadiusY="10" StrokeThickness="1.5" Margin="212,0,9,-16" Fill="#99FFFFFF" Clip="M0,-15 L658,-15 L658,562.5 L0,562.5 z"/>
         <Grid x:Name="ErkeScore" Margin="212,0,9,0">
             <local:Score x:Name="Score"/>
