@@ -2,7 +2,7 @@
 
 ## 摘要
 
-基于WPF和.NET Framework 4.8的第三方客户端
+基于WPF和.NET Framework 4.8的第二课堂第三方客户端
 
 接口文档 [戳这里 ←](https://github.com/Xing-Fax/ErkeSmx/blob/master/API/interface.md)
 
