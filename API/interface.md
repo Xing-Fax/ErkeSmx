@@ -6,7 +6,7 @@
 
 >  https://erke.smxpt.cn/lencon/app/getPublicKey
 
-请求方式：GET
+请求方式：POST
 
 认证方式：无
 
